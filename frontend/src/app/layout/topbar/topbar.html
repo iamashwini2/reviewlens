@@ -1,1 +1,39 @@
-<p>topbar works!</p>
+<header class="topbar">
+
+  <div class="topbar-left">
+    <span class="workspace-label">ReviewLens Workspace</span>
+  </div>
+
+  <div class="topbar-actions">
+
+    <button
+      type="button"
+      class="theme-toggle"
+      (click)="toggleTheme()"
+      [attr.aria-label]="
+        themeService.theme() === 'dark'
+          ? 'Switch to light theme'
+          : 'Switch to dark theme'
+      "
+    >
+      @if (themeService.theme() === 'dark') {
+        <span class="theme-icon">☀</span>
+      } @else {
+        <span class="theme-icon">☾</span>
+      }
+    </button>
+
+    <div class="profile">
+      <div class="profile-avatar">
+        A
+      </div>
+
+      <div class="profile-info">
+        <strong>Ashwini</strong>
+        <span>Analyst</span>
+      </div>
+    </div>
+
+  </div>
+
+</header>

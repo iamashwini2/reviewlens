@@ -1,9 +1,11 @@
 import { Component } from '@angular/core';
+import { RouterLink } from '@angular/router';
 
 @Component({
-  imports: [],
   selector: 'app-dashboard',
-  styleUrl: './dashboard.css',
+  standalone: true,
+  imports: [RouterLink],
   templateUrl: './dashboard.html',
+  styleUrl: './dashboard.css'
 })
 export class Dashboard {}

@@ -1,0 +1,44 @@
+.app-shell {
+  min-height: 100vh;
+}
+
+.main-area {
+  min-height: 100vh;
+
+  margin-left: 260px;
+
+  background:
+    radial-gradient(
+      circle at 90% 0%,
+      var(--primary-soft),
+      transparent 28%
+    ),
+    radial-gradient(
+      circle at 10% 100%,
+      var(--secondary-soft),
+      transparent 25%
+    ),
+    var(--bg-main);
+
+  transition:
+    margin var(--transition),
+    background var(--transition);
+}
+
+.page-content {
+  min-height: calc(100vh - 76px);
+
+  padding: 30px;
+}
+
+@media (max-width: 960px) {
+  .main-area {
+    margin-left: 82px;
+  }
+}
+
+@media (max-width: 640px) {
+  .page-content {
+    padding: 18px;
+  }
+}

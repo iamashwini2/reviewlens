@@ -1,1 +1,183 @@
 <p>dashboard works!</p>
+<section class="dashboard">
+
+  <div class="hero">
+
+    <div class="hero-content">
+      <span class="eyebrow">
+        Customer Intelligence Platform
+      </span>
+
+      <h1>
+        Turn customer feedback into
+        <span>clear decisions.</span>
+      </h1>
+
+      <p>
+        Detect customer sentiment at aspect level,
+        uncover strengths and identify product issues
+        from thousands of customer reviews.
+      </p>
+    </div>
+
+    <a
+      routerLink="/analyze"
+      class="analyze-button"
+    >
+      Analyze Review
+    </a>
+
+  </div>
+
+
+  <div class="stats-grid">
+
+    <article class="stat-card">
+      <div class="stat-heading">
+        Total Reviews
+      </div>
+
+      <strong>12,548</strong>
+
+      <small class="positive-text">
+        ↑ 12.4% this month
+      </small>
+    </article>
+
+
+    <article class="stat-card">
+      <div class="stat-heading">
+        Positive
+      </div>
+
+      <strong class="positive-text">
+        68.7%
+      </strong>
+
+      <small>
+        Customer satisfaction
+      </small>
+    </article>
+
+
+    <article class="stat-card">
+      <div class="stat-heading">
+        Negative
+      </div>
+
+      <strong class="negative-text">
+        19.6%
+      </strong>
+
+      <small>
+        Requires attention
+      </small>
+    </article>
+
+
+    <article class="stat-card">
+      <div class="stat-heading">
+        Neutral
+      </div>
+
+      <strong class="neutral-text">
+        11.7%
+      </strong>
+
+      <small>
+        Neutral feedback
+      </small>
+    </article>
+
+  </div>
+
+
+  <div class="dashboard-grid">
+
+    <article class="panel sentiment-panel">
+
+      <div class="panel-header">
+        <div>
+          <span class="panel-label">
+            SENTIMENT OVERVIEW
+          </span>
+
+          <h2>
+            Customer sentiment trend
+          </h2>
+        </div>
+
+        <select>
+          <option>Last 30 days</option>
+          <option>Last 7 days</option>
+          <option>This year</option>
+        </select>
+      </div>
+
+      <div class="chart-area">
+
+        <div class="chart-bar positive-bar">
+          <span>Positive</span>
+          <div class="bar">
+            <div style="width: 68.7%"></div>
+          </div>
+          <strong>68.7%</strong>
+        </div>
+
+        <div class="chart-bar negative-bar">
+          <span>Negative</span>
+          <div class="bar">
+            <div style="width: 19.6%"></div>
+          </div>
+          <strong>19.6%</strong>
+        </div>
+
+        <div class="chart-bar neutral-bar">
+          <span>Neutral</span>
+          <div class="bar">
+            <div style="width: 11.7%"></div>
+          </div>
+          <strong>11.7%</strong>
+        </div>
+
+      </div>
+
+    </article>
+
+
+    <article class="panel insight-panel">
+
+      <span class="panel-label">
+        AI BUSINESS INSIGHT
+      </span>
+
+      <h2>
+        Battery needs attention
+      </h2>
+
+      <p>
+        Battery-related complaints are currently
+        the largest negative contributor.
+        Customers frequently mention poor battery
+        backup and slow charging.
+      </p>
+
+      <div class="insight-stats">
+
+        <div>
+          <strong>61%</strong>
+          <span>Negative</span>
+        </div>
+
+        <div>
+          <strong>842</strong>
+          <span>Mentions</span>
+        </div>
+
+      </div>
+
+    </article>
+
+  </div>
+
+</section>

@@ -1,1 +1,331 @@
-<p>analyze works!</p>
+<section class="analyze-page">
+
+  <div class="page-heading">
+    <span class="eyebrow">
+      Aspect-Based Sentiment Analysis
+    </span>
+
+    <h1>
+      Understand every part of
+      <span>customer feedback.</span>
+    </h1>
+
+    <p>
+      Paste a customer review and ReviewLens will detect
+      important product aspects and classify sentiment
+      for each one individually.
+    </p>
+  </div>
+
+
+  <div class="analyze-layout">
+
+    <article class="review-panel">
+
+      <div class="panel-heading">
+        <div>
+          <span class="panel-label">
+            REVIEW INPUT
+          </span>
+
+          <h2>
+            Analyze customer feedback
+          </h2>
+        </div>
+
+        <span class="character-count">
+          {{ reviewText.length }} / 5000
+        </span>
+      </div>
+
+      <textarea
+        [(ngModel)]="reviewText"
+        maxlength="5000"
+        placeholder="Example: The camera quality is excellent, but the battery drains too quickly..."
+      ></textarea>
+
+
+      <div class="field-group">
+
+        <label for="category">
+          Product category
+        </label>
+
+        <select
+          id="category"
+          [(ngModel)]="selectedCategory"
+        >
+          <option value="smartphone">
+            Smartphone
+          </option>
+
+          <option value="laptop">
+            Laptop
+          </option>
+
+          <option value="headphones">
+            Headphones
+          </option>
+
+          <option value="general">
+            General Product
+          </option>
+        </select>
+
+      </div>
+
+
+      <div class="sample-section">
+
+        <span>
+          Try a sample review
+        </span>
+
+        <div class="sample-list">
+
+          @for (sample of sampleReviews; track sample) {
+            <button
+              type="button"
+              class="sample-chip"
+              (click)="useSample(sample)"
+            >
+              {{ sample }}
+            </button>
+          }
+
+        </div>
+
+      </div>
+
+
+      <button
+        type="button"
+        class="analyze-button"
+        [disabled]="!reviewText.trim() || isAnalyzing()"
+        (click)="analyzeReview()"
+      >
+
+        @if (isAnalyzing()) {
+          <span class="spinner"></span>
+          Analyzing feedback...
+        } @else {
+          Analyze Review
+        }
+
+      </button>
+
+    </article>
+
+
+    <aside class="analysis-info">
+
+      <div class="info-card">
+
+        <div class="info-number">
+          01
+        </div>
+
+        <div>
+          <h3>
+            Detect aspects
+          </h3>
+
+          <p>
+            Identify product features such as camera,
+            battery, display and performance.
+          </p>
+        </div>
+
+      </div>
+
+
+      <div class="info-card">
+
+        <div class="info-number">
+          02
+        </div>
+
+        <div>
+          <h3>
+            Analyze sentiment
+          </h3>
+
+          <p>
+            Classify each detected aspect as positive,
+            neutral or negative.
+          </p>
+        </div>
+
+      </div>
+
+
+      <div class="info-card">
+
+        <div class="info-number">
+          03
+        </div>
+
+        <div>
+          <h3>
+            Generate insights
+          </h3>
+
+          <p>
+            Convert raw customer feedback into
+            useful business intelligence.
+          </p>
+        </div>
+
+      </div>
+
+    </aside>
+
+  </div>
+
+
+  @if (isAnalyzing()) {
+
+    <section class="processing-panel">
+
+      <div class="processing-animation">
+        <div></div>
+      </div>
+
+      <div>
+        <span class="panel-label">
+          AI PROCESSING
+        </span>
+
+        <h2>
+          Understanding customer feedback...
+        </h2>
+
+        <p>
+          Detecting product aspects and analyzing
+          sentiment relationships.
+        </p>
+      </div>
+
+    </section>
+
+  }
+
+
+  @if (hasResult()) {
+
+    <section class="results-section">
+
+      <div class="results-heading">
+
+        <div>
+          <span class="panel-label">
+            ANALYSIS RESULT
+          </span>
+
+          <h2>
+            Detected customer sentiment
+          </h2>
+        </div>
+
+        <div
+          class="overall-badge"
+          [class]="overallSentiment()"
+        >
+          {{ overallSentiment() }}
+        </div>
+
+      </div>
+
+
+      <div class="aspect-grid">
+
+        @for (result of results(); track result.aspect) {
+
+          <article
+            class="aspect-card"
+            [class]="result.sentiment"
+          >
+
+            <div class="aspect-top">
+
+              <div>
+                <span class="aspect-label">
+                  Aspect
+                </span>
+
+                <h3>
+                  {{ result.aspect }}
+                </h3>
+              </div>
+
+              <span
+                class="sentiment-badge"
+                [class]="result.sentiment"
+              >
+                {{ result.sentiment }}
+              </span>
+
+            </div>
+
+
+            <div class="confidence-row">
+
+              <div class="confidence-heading">
+                <span>
+                  Confidence
+                </span>
+
+                <strong>
+                  {{ result.confidence }}%
+                </strong>
+              </div>
+
+              <div class="confidence-track">
+
+                <div
+                  class="confidence-fill"
+                  [style.width.%]="result.confidence"
+                ></div>
+
+              </div>
+
+            </div>
+
+          </article>
+
+        }
+
+      </div>
+
+
+      <article class="business-insight">
+
+        <div class="insight-icon">
+          ✦
+        </div>
+
+        <div>
+
+          <span class="panel-label">
+            AI BUSINESS INSIGHT
+          </span>
+
+          <h2>
+            Camera performs well, while battery needs attention.
+          </h2>
+
+          <p>
+            This customer appreciates the camera quality,
+            but battery performance appears to be the primary
+            source of dissatisfaction. Display feedback is mostly neutral.
+          </p>
+
+        </div>
+
+      </article>
+
+    </section>
+
+  }
+
+</section>

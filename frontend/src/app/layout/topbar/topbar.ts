@@ -1,9 +1,17 @@
 import { Component } from '@angular/core';
+import { ThemeService } from '../../core/services/theme';
 
 @Component({
-  imports: [],
   selector: 'app-topbar',
-  styleUrl: './topbar.css',
+  standalone: true,
+  imports: [],
   templateUrl: './topbar.html',
+  styleUrl: './topbar.css'
 })
-export class Topbar {}
+export class Topbar {
+  constructor(public themeService: ThemeService) {}
+
+  toggleTheme(): void {
+    this.themeService.toggleTheme();
+  }
+}
